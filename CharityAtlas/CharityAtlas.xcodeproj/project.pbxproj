@@ -15,6 +15,21 @@
 		3A1B1D202ADF0A37009104A4 /* CAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D1F2ADF0A37009104A4 /* CAHomeViewController.swift */; };
 		3A1B1D222ADF0A48009104A4 /* CACharitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D212ADF0A48009104A4 /* CACharitiesViewController.swift */; };
 		3A1B1D242ADF0A54009104A4 /* CACharityEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D232ADF0A54009104A4 /* CACharityEventsViewController.swift */; };
+		3A83CD002B0BEE7A004DB396 /* CACharitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */; };
+		3AD0D4FC2B165EAD00D89A45 /* CARequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */; };
+		3AD0D4FE2B165F0800D89A45 /* CAEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */; };
+		3AD0D5002B1661C500D89A45 /* CAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FF2B1661C500D89A45 /* CAService.swift */; };
+		3AD0D5042B16645200D89A45 /* CACharityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5032B16645200D89A45 /* CACharityDetailViewController.swift */; };
+		3AD0D5062B16649900D89A45 /* CACharityEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5052B16649900D89A45 /* CACharityEventDetailViewController.swift */; };
+		3AD0D50D2B16654700D89A45 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D50C2B16654700D89A45 /* Extensions.swift */; };
+		3AD0D50F2B16669C00D89A45 /* CACharityDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D50E2B16669C00D89A45 /* CACharityDetailViewViewModel.swift */; };
+		3AD0D5112B16790500D89A45 /* CACharityEventDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5102B16790500D89A45 /* CACharityEventDetailViewViewModel.swift */; };
+		3AD0D5132B1679F400D89A45 /* CACharityEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5122B1679F400D89A45 /* CACharityEvent.swift */; };
+		3AD0D5152B167A0400D89A45 /* CACharity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5142B167A0400D89A45 /* CACharity.swift */; };
+		3AD0D5172B167AD600D89A45 /* CACharityEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5162B167AD600D89A45 /* CACharityEventsListView.swift */; };
+		3AD0D5192B1680C600D89A45 /* CACharityListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D5182B1680C600D89A45 /* CACharityListViewViewModel.swift */; };
+		3AD0D51B2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D51A2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift */; };
+		3AD0D51D2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D51C2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +43,21 @@
 		3A1B1D1F2ADF0A37009104A4 /* CAHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAHomeViewController.swift; sourceTree = "<group>"; };
 		3A1B1D212ADF0A48009104A4 /* CACharitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesViewController.swift; sourceTree = "<group>"; };
 		3A1B1D232ADF0A54009104A4 /* CACharityEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventsViewController.swift; sourceTree = "<group>"; };
+		3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesListView.swift; sourceTree = "<group>"; };
+		3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CARequest.swift; sourceTree = "<group>"; };
+		3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEndpoint.swift; sourceTree = "<group>"; };
+		3AD0D4FF2B1661C500D89A45 /* CAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAService.swift; sourceTree = "<group>"; };
+		3AD0D5032B16645200D89A45 /* CACharityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityDetailViewController.swift; sourceTree = "<group>"; };
+		3AD0D5052B16649900D89A45 /* CACharityEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventDetailViewController.swift; sourceTree = "<group>"; };
+		3AD0D50C2B16654700D89A45 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3AD0D50E2B16669C00D89A45 /* CACharityDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityDetailViewViewModel.swift; sourceTree = "<group>"; };
+		3AD0D5102B16790500D89A45 /* CACharityEventDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventDetailViewViewModel.swift; sourceTree = "<group>"; };
+		3AD0D5122B1679F400D89A45 /* CACharityEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEvent.swift; sourceTree = "<group>"; };
+		3AD0D5142B167A0400D89A45 /* CACharity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharity.swift; sourceTree = "<group>"; };
+		3AD0D5162B167AD600D89A45 /* CACharityEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventsListView.swift; sourceTree = "<group>"; };
+		3AD0D5182B1680C600D89A45 /* CACharityListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityListViewViewModel.swift; sourceTree = "<group>"; };
+		3AD0D51A2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventsListViewViewModel.swift; sourceTree = "<group>"; };
+		3AD0D51C2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesListViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +90,11 @@
 		3A1B1D072ADF04DA009104A4 /* CharityAtlas */ = {
 			isa = PBXGroup;
 			children = (
-				3A1B1D1E2ADF0868009104A4 /* Resources */,
-				3A1B1D1D2ADF0850009104A4 /* ViewModels */,
+				3AD0D5072B1664BA00D89A45 /* Models */,
+				3AD0D4FA2B165E9900D89A45 /* APIClient */,
+				3A83CD032B0BEE8B004DB396 /* Resources */,
+				3A83CD022B0BEE85004DB396 /* ViewModels */,
+				3A83CD012B0BEE80004DB396 /* Views */,
 				3A1B1D1C2ADF0849009104A4 /* ViewControllers */,
 				3A1B1D082ADF04DA009104A4 /* AppDelegate.swift */,
 				3A1B1D0A2ADF04DA009104A4 /* SceneDelegate.swift */,
@@ -75,26 +108,102 @@
 		3A1B1D1C2ADF0849009104A4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0D5022B1663E400D89A45 /* CharityEvents */,
+				3AD0D5012B1663D800D89A45 /* CharityHub */,
+				3A83CCFE2B0BEE34004DB396 /* Core */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3A83CCFE2B0BEE34004DB396 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				3A1B1D0C2ADF04DA009104A4 /* CATabBarViewController.swift */,
 				3A1B1D1F2ADF0A37009104A4 /* CAHomeViewController.swift */,
 				3A1B1D212ADF0A48009104A4 /* CACharitiesViewController.swift */,
 				3A1B1D232ADF0A54009104A4 /* CACharityEventsViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		3A1B1D1D2ADF0850009104A4 /* ViewModels */ = {
+		3A83CD012B0BEE80004DB396 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */,
+				3AD0D5162B167AD600D89A45 /* CACharityEventsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A83CD022B0BEE85004DB396 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D50E2B16669C00D89A45 /* CACharityDetailViewViewModel.swift */,
+				3AD0D5102B16790500D89A45 /* CACharityEventDetailViewViewModel.swift */,
+				3AD0D5182B1680C600D89A45 /* CACharityListViewViewModel.swift */,
+				3AD0D51A2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift */,
+				3AD0D51C2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		3A1B1D1E2ADF0868009104A4 /* Resources */ = {
+		3A83CD032B0BEE8B004DB396 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D50C2B16654700D89A45 /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3AD0D4FA2B165E9900D89A45 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */,
+				3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */,
+				3AD0D4FF2B1661C500D89A45 /* CAService.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		3AD0D5012B1663D800D89A45 /* CharityHub */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D5032B16645200D89A45 /* CACharityDetailViewController.swift */,
+			);
+			path = CharityHub;
+			sourceTree = "<group>";
+		};
+		3AD0D5022B1663E400D89A45 /* CharityEvents */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D5052B16649900D89A45 /* CACharityEventDetailViewController.swift */,
+			);
+			path = CharityEvents;
+			sourceTree = "<group>";
+		};
+		3AD0D5072B1664BA00D89A45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D50A2B1664D800D89A45 /* DataTypes */,
+				3AD0D5082B1664C600D89A45 /* APIResponseTypes */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3AD0D5082B1664C600D89A45 /* APIResponseTypes */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Resources;
+			path = APIResponseTypes;
+			sourceTree = "<group>";
+		};
+		3AD0D50A2B1664D800D89A45 /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0D5122B1679F400D89A45 /* CACharityEvent.swift */,
+				3AD0D5142B167A0400D89A45 /* CACharity.swift */,
+			);
+			path = DataTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +276,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD0D5192B1680C600D89A45 /* CACharityListViewViewModel.swift in Sources */,
 				3A1B1D0D2ADF04DA009104A4 /* CATabBarViewController.swift in Sources */,
 				3A1B1D202ADF0A37009104A4 /* CAHomeViewController.swift in Sources */,
+				3AD0D5172B167AD600D89A45 /* CACharityEventsListView.swift in Sources */,
+				3AD0D51D2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift in Sources */,
 				3A1B1D242ADF0A54009104A4 /* CACharityEventsViewController.swift in Sources */,
 				3A1B1D092ADF04DA009104A4 /* AppDelegate.swift in Sources */,
 				3A1B1D222ADF0A48009104A4 /* CACharitiesViewController.swift in Sources */,
+				3AD0D4FE2B165F0800D89A45 /* CAEndpoint.swift in Sources */,
 				3A1B1D0B2ADF04DA009104A4 /* SceneDelegate.swift in Sources */,
+				3AD0D5042B16645200D89A45 /* CACharityDetailViewController.swift in Sources */,
+				3AD0D50D2B16654700D89A45 /* Extensions.swift in Sources */,
+				3AD0D5132B1679F400D89A45 /* CACharityEvent.swift in Sources */,
+				3AD0D50F2B16669C00D89A45 /* CACharityDetailViewViewModel.swift in Sources */,
+				3AD0D5112B16790500D89A45 /* CACharityEventDetailViewViewModel.swift in Sources */,
+				3AD0D5152B167A0400D89A45 /* CACharity.swift in Sources */,
+				3AD0D5002B1661C500D89A45 /* CAService.swift in Sources */,
+				3A83CD002B0BEE7A004DB396 /* CACharitiesListView.swift in Sources */,
+				3AD0D51B2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift in Sources */,
+				3AD0D4FC2B165EAD00D89A45 /* CARequest.swift in Sources */,
+				3AD0D5062B16649900D89A45 /* CACharityEventDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
