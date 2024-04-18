@@ -11,8 +11,6 @@ protocol CACharityEventsListViewDelegate {
     func caCharityEventsListViewView(_ charityEventsListView: CACharityEventsListView, didSelectCharityEvent event: CACharityEvent)
 }
 
-
-
 final class CACharityEventsListView: UIView {
     
     // MARK: - Init
