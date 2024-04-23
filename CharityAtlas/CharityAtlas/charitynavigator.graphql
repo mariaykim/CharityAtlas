@@ -1,0 +1,7 @@
+query ExampleQuery($term: String!) {
+  publicSearchFaceted(term: $term) {
+    results {
+      name
+    }
+  }
+}

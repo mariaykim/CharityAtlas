@@ -13,6 +13,10 @@ class CACharityEventsViewController: UIViewController, CACharityEventsListViewDe
 
     // MARK: - Init
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
@@ -27,7 +31,7 @@ class CACharityEventsViewController: UIViewController, CACharityEventsListViewDe
     }
     
     private func setUpView() {
-        charityEventsListView.delegate = self
+//        charityEventsListView.delegate = self
         view.addSubview(charityEventsListView)
         NSLayoutConstraint.activate([
             charityEventsListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

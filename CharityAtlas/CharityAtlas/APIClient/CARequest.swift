@@ -14,7 +14,7 @@ final class CARequest {
     // Query parameters
     
     private struct Constants {
-        static let baseUrl = "https://rickandmortyapi.com/api"
+        static let baseUrl = "https://data.charitynavigator.org"
     }
     
     private let endpoint: CAEndpoint

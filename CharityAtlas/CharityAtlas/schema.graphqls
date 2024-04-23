@@ -1,0 +1,2297 @@
+"""metric of the assessment"""
+interface Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of rating"""
+  score: Float
+
+  """maximum score of rating"""
+  possibleScore: Float
+
+  """is passing? NO, YES, or PARTIAL"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+}
+
+enum PassType {
+  NO
+  YES
+  PARTIAL
+}
+
+"""results"""
+type Results {
+  results: [SearchResult!]!
+}
+
+"""Result item"""
+type SearchResult {
+  """The name of the organization (duplicate of name)"""
+  title: String
+
+  """The name of the organization"""
+  name: String
+
+  """The URL of the organization"""
+  url: String
+
+  """The EIN of the organization"""
+  ein: String
+
+  """The city that the organization is located in"""
+  city: String
+
+  """The state that the organization is located in"""
+  state: String
+
+  """The total encompass score of the organization"""
+  rating: String
+
+  """The highest level advisory of the organization"""
+  highest_level_advisory: String
+
+  """A main cause that the organization is associated with"""
+  cause: String
+
+  """The size bucket that the organization is in"""
+  size: String
+
+  """The star rating of the organization"""
+  star_rating: String
+
+  """The IRS subsection of the organization"""
+  subsection: String
+
+  """The donation eligibility of the organization"""
+  donation_eligible: Boolean
+
+  """The encompass eligibility of the organization"""
+  encompass_eligible: Boolean
+
+  """The AKAs associated with the organization"""
+  akas: [String!]
+
+  """The acronym of the organization"""
+  acronym: String
+}
+
+"""iterable sections in an autocomplete response"""
+type Section {
+  """The title of the section"""
+  title: String!
+
+  """The results in the section"""
+  results: [SearchResult!]!
+}
+
+"""Faceted search response"""
+type FacetedResponse {
+  """Total number of results requested"""
+  size: Int!
+
+  """Offset of results requested"""
+  from: Int!
+
+  """Search string"""
+  term: String!
+
+  """Total number of results found"""
+  result_count: Int!
+
+  """Results"""
+  results: [SearchResult!]!
+
+  """Facets available to search on"""
+  filters: [Filter!]!
+}
+
+"""filter with options available"""
+type Filter {
+  name: String!
+  options: [Option!]!
+}
+
+"""search result"""
+type Option {
+  title: String!
+  count: Int!
+  id: String
+  suboptions: [Option!]
+}
+
+"""A node within the cause tree"""
+type CauseNode {
+  id: String!
+  name: String!
+  children: [CauseNode!]!
+}
+
+"""The source referenced in the alert object type"""
+type AlertSource {
+  """The id of the source"""
+  id: String
+
+  """The source article title of the alert"""
+  outlet: String
+
+  """The date of article publication"""
+  publishedDt: DateTime
+
+  """The source article title of the alert"""
+  title: String
+
+  """The source url of the alert"""
+  url: String
+
+  """is this the primary alert source?"""
+  isPrimary: Boolean!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""the fake charity details"""
+type FakeCharityDetails {
+  """The name of the fake nonprofit"""
+  name: String
+
+  """The website of the fake nonprofit"""
+  website: String
+
+  """The contact of the fake nonprofit"""
+  contact: String
+
+  """The street of the nonprofit"""
+  street: String
+
+  """The street2 of the nonprofit"""
+  street2: String
+
+  """The city of the nonprofit"""
+  city: String
+
+  """The state of the nonprofit"""
+  state: String
+
+  """The zip code of the nonprofit"""
+  zip: String
+}
+
+"""The alert Charity Navigator issued on the nonprofit object type"""
+type Alert {
+  """The id of the alert"""
+  id: String
+
+  """The EIN of the nonprofit"""
+  ein: String
+
+  """The name of the nonprofit"""
+  nonprofitName: String
+
+  """The date of alert publication"""
+  publishedDt: DateTime
+
+  """The date of alert publication"""
+  reviewDt: DateTime
+
+  """The level label of the alert"""
+  level: AlertLevel
+
+  """The severity label of the alert"""
+  severity: Severity
+
+  """The offense label of the alert"""
+  offense: Offense
+
+  """The status of the alert"""
+  status: Status
+
+  """The url of the response"""
+  uploadedResponseUrl: String
+
+  """The sources of the alert"""
+  sources: [AlertSource!]
+
+  """The sources of the alert"""
+  fakeCharity: FakeCharityDetails
+
+  """The date of alert was created"""
+  createdAt: DateTime
+
+  """The date of alert was updatedAt"""
+  updatedAt: DateTime
+}
+
+enum AlertLevel {
+  LOW
+  MEDIUM
+  HIGH
+  HIGHEST
+}
+
+enum Severity {
+  Reported
+  Alleged
+  Confirmed
+}
+
+enum Offense {
+  FakeEntity
+  FraudulentEntity
+  Dissolution
+  Fraud
+  Embezzlement
+  SexualAbuseHarassment
+  RacialAbuseHarassment
+  Discrimination
+  AnimalAbuseNeglect
+  ConspiracyBribery
+  BankruptcyFiling
+  DonorDataBreachWithoutDisclosure
+  OtherMaterialIllegalActivity
+  OtherMaterialLawsuit
+  OtherMaterialInvestigation
+  MatterOfConcern
+  Settlement
+  Delinquency
+  NoticeOfRevocationOfNonprofitStatus
+}
+
+enum Status {
+  Pending
+  Prevented
+  Removed
+  Active
+  Archived
+}
+
+"""text metric of the assessment"""
+type TextMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of this metric"""
+  score: Float
+
+  """maximum score of this metric"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """the value for this metric"""
+  textValue: String
+}
+
+"""boolean metric of assessment"""
+type BooleanMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of this metric"""
+  score: Float
+
+  """maximum score of this metric"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """true or false value for this metric"""
+  booleanValue: Boolean
+
+  """the raw value for this metric"""
+  rawValue: String
+}
+
+"""ratio metric of financial assessment"""
+type RatioMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of this metric"""
+  score: Float
+
+  """maximum score of this metric"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """the value for this ratio metric"""
+  ratioValue: Float
+
+  """the type of ratio"""
+  ratioType: RatioType
+
+  """the raw value for this metric"""
+  rawValue: String
+}
+
+enum RatioType {
+  PERCENTAGE
+  CURRENCY
+  YEARS
+}
+
+"""numeric metric of financial assessment"""
+type NumericMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of this metric"""
+  score: Float
+
+  """maximum score of this metric"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """the numeric value for this  metric"""
+  numericValue: Float
+
+  """the raw value for this metric"""
+  rawValue: String
+}
+
+"""assesments of becoons"""
+type Assessment {
+  """The name of the assesment"""
+  name: String
+
+  """The slug_name of the assessment"""
+  slug: String
+
+  """The weight of the assessment"""
+  weight: Float
+
+  """The eligibility status for an assessment"""
+  isEligible: Boolean
+
+  """The pass/fail status of the assessment"""
+  isPassing: PassType
+
+  """The score of the assessment"""
+  score: Float
+
+  """The possible score of the assessment"""
+  possibleScore: Float
+
+  """The metrics of the assessment"""
+  metrics: [Metric!]
+}
+
+"""Rating of the nonprofit object type"""
+type Beacon {
+  """The name of the beacon"""
+  name: String
+
+  """The short name of the beacon"""
+  shortName: BeaconNamesType
+
+  """The slug_name of the beacon"""
+  slug: String
+
+  """The weight of the beacon"""
+  weight: Float
+
+  """The eligibility status for the beacon"""
+  isEligible: Boolean
+
+  """The reason why the rating is not eligible"""
+  notEligibleReasons: [IneligibleStatusType!]
+
+  """The pass/fail status of the beacon"""
+  isPassing: PassType
+
+  """The score of the beacon"""
+  score: Float
+
+  """The assessments of the beacon"""
+  assessments: [Assessment!]
+}
+
+enum BeaconNamesType {
+  af
+  ir
+  cc
+  la
+}
+
+enum IneligibleStatusType {
+  UNKNOWN
+  INSUFFICIENT_DATA
+  NO_FULL_YEAR_SEQUENCE
+  NOT_THREE_YEARS
+  NOT_FILED_IN_LAST_FOUR_YEARS
+  NOT_FILED_THREE_IN_LAST_SIX_YEARS
+  INVALID_PROGRAM_EXPENSE_RATIO
+  NO_TOTAL_EXPENSES
+  MATERIAL_DIVERSION
+  NOT_CLASSIFIED
+}
+
+"""Rating of the nonprofit object type"""
+type Rating {
+  """The id of the rating"""
+  id: ID
+
+  """The EIN of the nonprofit"""
+  ein: String
+
+  """The version of the rating data in this query"""
+  version: String
+
+  """The currently active rating version on charitynavigator.org"""
+  versionActive: String
+
+  """The eligibility status of the rating"""
+  isEligible: Boolean
+
+  """The reason why the rating is not eligible"""
+  notEligibleReasons: [RatingNotEligibleType!]
+
+  """The pass/fail status of the rating"""
+  isPassing: PassType
+
+  """The score of the rating"""
+  score: Float
+
+  """The number of stars of the rating"""
+  stars: Int
+
+  """The date of rating publication"""
+  publishedAt: DateTime
+
+  """The beacon type"""
+  beacons: [Beacon!]
+
+  """The tax year used in the rating"""
+  taxYear: String
+
+  """The last updated date of the rating doc"""
+  updatedAt: DateTime
+}
+
+enum RatingNotEligibleType {
+  NOT_501C3
+  INSUFFICIENT_BEACONS
+  GIVING_NOT_RECOMMENDED
+}
+
+"""The nonprofit Address object type"""
+type Address {
+  """physical or mailing address"""
+  type: AddressType
+
+  """The street of the nonprofit"""
+  street: String
+
+  """The street2 of the nonprofit"""
+  street2: String
+
+  """The city of the nonprofit"""
+  city: String
+
+  """The state of the nonprofit"""
+  state: String
+
+  """The zip code of the nonprofit"""
+  zip: String
+
+  """The country of the nonprofit"""
+  country: String
+}
+
+enum AddressType {
+  physical
+  mailing
+}
+
+"""The nonprofit Address object type"""
+type List {
+  """The name of the nonprofit list"""
+  listName: String
+
+  """The id of the list"""
+  listId: String
+}
+
+"""The consolidated nonprofit object type"""
+type ConsolidateOrg {
+  """The name of the nonprofit"""
+  name: String
+
+  """The EIN of the nonprofit"""
+  ein: String
+
+  """is this the primary consolidated nonprofit?"""
+  isPrimary: Boolean
+}
+
+"""
+Top five key staff members listed on Internal Revenue Service form 990 object type
+"""
+type Staff {
+  """The name of the staff member"""
+  name: String
+
+  """The title of the staff member"""
+  title: String
+
+  """
+  The amount of reportable compensation from nonprofit to the staff member. Source: IRS Form 990 Part VII Section A Line 1 Column (D)
+  """
+  compensationReportable: Float
+
+  """
+  The amount of reportable compensation from related nonprofit to the staff member. Source: IRS Form 990 Part VII Section A Line 1 Column (E)
+  """
+  compensationReportableRelated: Float
+
+  """
+  The amount of total compensation to the staff member. Source: IRS Form 990 Part VII Section A Line 1 Column (D) + Column (E)
+  """
+  compensationReportableTotal: Float
+
+  """
+  The amounnt of other compensation to the staff member. Source: IRS Form 990 Part VII Section A Line 1 Column (F)
+  """
+  compensationOther: Float
+}
+
+"""IRSBusinessMasterFile keys of the nonprofit object type"""
+type IRSBusinessMasterFile {
+  """foundation code of the nonprofit"""
+  foundationCode: String
+
+  """foundation code of the nonprofit"""
+  foundationDescription: String
+
+  """foundation code of the nonprofit"""
+  nteeCode: String
+
+  """foundation code of the nonprofit"""
+  nteeDescription: String
+
+  """
+  The year Internal Revenue Service issued a ruling or determination letter to nonprofit
+  """
+  nteeType: String
+
+  """foundation code of the nonprofit"""
+  subsectionCode: String
+
+  """foundation code of the nonprofit"""
+  subsectionDescription: String
+
+  """subsectionDescription of the nonprofit"""
+  affiliationCode: String
+
+  """affiliationCode of the nonprofit"""
+  affiliationDescription: String
+
+  """affiliationDescription of the nonprofit"""
+  filingRequirementCode: FilingType
+
+  """foundation code of the nonprofit"""
+  filingRequirementDescription: String
+
+  """Private foundation filing requirement code"""
+  pfFilingRequirementCode: FilingType
+
+  """Private foundation filing requirement description"""
+  pfFilingRequirementDescription: String
+
+  """
+  Internal Revenue Service subsection codes for tax-exempt organizations of the nonprofit
+  """
+  ruling: String
+
+  """
+  The year Internal Revenue Service issued a ruling or determination letter to nonprofit
+  """
+  deductibilityCode: String
+
+  """
+  The year Internal Revenue Service issued a ruling or determination letter to nonprofit
+  """
+  deductibilityDescription: String
+}
+
+enum FilingType {
+  UNKNOWN
+  FORM_990_NOT_REQUIRED
+  FORM_990_PF_NOT_REQUIRED
+  FORM_990_PF
+  FORM_990_OR_EZ
+  FORM_990_N
+  FORM_990_BL
+  ORG_GROUP
+  ORG_CHURCH
+  ORG_GOVERNMENT
+  ORG_RELIGIOUS
+  ORG_POLITICAL
+}
+
+"""GivingBasket object of the nonprofit"""
+type GivingBasket {
+  """
+  Is the nonprofit eligible for receiving donations via Charity Navigator's Giving Basket?
+  """
+  isEligible: Boolean
+
+  """
+  The reason, if any, the nonprofit is not eligible for Charity Navigator's Giving Bakset?
+  """
+  notEligibleReason: DonationNotEligibleReason
+}
+
+enum DonationNotEligibleReason {
+  NOT_501C3
+  PRIVATE_FOUNDATION
+  NOT_BMF
+  OPT_OUT
+  GIVING_NOT_RECOMMENDED
+  DELINQUENT
+}
+
+"""
+Top five key staff members listed on Internal Revenue Service form 990 object type
+"""
+type RatingHistory {
+  """The number of start 1 -> 4"""
+  stars: Float
+
+  """the score of the rating 0 -> 100"""
+  score: Float
+
+  """The year of the rating"""
+  year: String
+
+  """The date of article publication"""
+  publishedAt: DateTime
+}
+
+"""Charity Navigator's  nonprofit organizations data object type"""
+type Nonprofit {
+  """The EIN of the organization"""
+  ein: String
+
+  """The name of the nonprofit"""
+  name: String
+
+  """The website of the nonprofit"""
+  website: String
+
+  """The phone number of the nonprofit"""
+  phone: String
+
+  """The mission statement of the nonprofit"""
+  mission: String
+
+  """Has the nonprofit claimed their Charity Navigator profile?"""
+  hasApprovedRep: Boolean
+
+  """GivingBasket status nonprofit"""
+  givingBasket: GivingBasket
+
+  """The addresses of the nonprofit"""
+  addresses: [Address!]
+  alerts: [Alert!]!
+
+  """The size of the nonprofit based on their revenue"""
+  size: NonprofitSize
+  rating: Rating!
+  staff: [Staff!]!
+  consolidate: [ConsolidateOrg!]!
+
+  """IRSBusinessMasterFile of the nonprofit"""
+  irsBusinessMasterFile: IRSBusinessMasterFile
+  ratingHistory: [RatingHistory!]!
+
+  """The last updated date of the details doc"""
+  updatedAt: DateTime
+
+  """The current lists of nonprofits"""
+  lists: [List!]
+
+  """Is the nonprofit a favorite of the user"""
+  isFavorite(
+    """userId of the the user you want to check"""
+    userId: String! = ""
+  ): Boolean
+  taxReturns: [TaxReturn!]!
+}
+
+enum NonprofitSize {
+  SUPER
+  LARGE
+  MEDIUM
+  SMALL
+  MICRO
+  UNKNOWN
+}
+
+"""yes/no/opt-out metric of financial assessment"""
+type DonorPrivacyMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of rating"""
+  score: Float
+
+  """maximum score of rating"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """YES, NO or OPT_OUT"""
+  donorPrivacyValue: DonorPrivacyType
+
+  """the raw value for this metric"""
+  rawValue: String
+}
+
+enum DonorPrivacyType {
+  YES
+  OPT_OUT
+  NO
+}
+
+"""independent audit metric of the assessment"""
+type FinancialStatementMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """
+  An Audit, Review, or Compilation provides important information about financial accountability and accuracy. Organizations are scored based on their Total Revenue Amount
+  """
+  description: String
+
+  """score of this metric"""
+  score: Float
+
+  """maximum score of this metric"""
+  possibleScore: Float
+
+  """is passing? can be NO, YES, or PARTIAL"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """audit, audit and compilation/review, audit and audit committee, none"""
+  financialStatementValue: FinancialStatementType
+}
+
+enum FinancialStatementType {
+  AUDIT
+  COMPILATION_OR_REVIEW
+  AUDIT_AND_AUDIT_COMMITTEE
+  NONE
+}
+
+"""yes/no/opt-out metric of financial assessment"""
+type ImpactMetric implements Metric {
+  """the name of the metric"""
+  name: String
+
+  """the slug_name of the metric"""
+  slug: String
+
+  """the description of the metric"""
+  description: String
+
+  """score of rating"""
+  score: Float
+
+  """maximum score of rating"""
+  possibleScore: Float
+
+  """is passing?"""
+  isPassing: PassType
+
+  """eligible for this metric"""
+  isEligible: Boolean
+
+  """HIGHLY_COST_EFFECTIVE, COST_EFFECTIVE, NOT_COST_EFFECTIVE"""
+  impactMetricValue: ImpactMetricsType
+
+  """the raw value for this metric"""
+  rawValue: String
+}
+
+enum ImpactMetricsType {
+  HIGHLY_COST_EFFECTIVE
+  COST_EFFECTIVE
+  NOT_COST_EFFECTIVE
+}
+
+"""The alert Charity Navigator issued on the nonprofit object type"""
+type TaxReturn {
+  """The id of the alert"""
+  id: String
+
+  """isMostRecent"""
+  isMostRecent: Boolean
+
+  """isUsedInRating"""
+  isUsedInRating: Boolean
+
+  """The form type"""
+  type: String
+
+  """Form 990 Fiscal Year End Date"""
+  taxPeriodEndDate: DateTime
+
+  """Form 990 Part I line 12b"""
+  totalRevenue: Float
+
+  """Form 990 Part I line 18b"""
+  totalExpense: Float
+
+  """Form 990 Part IX line 25b"""
+  totalProgramExpense: Float
+
+  """Form 990 Part IX line 25d"""
+  totalFundraisingExpense: Float
+
+  """Form 990 Part IX line 25c"""
+  totalAdministrativeExpense: Float
+
+  """Form 990 Part X line 16b"""
+  totalAssets: Float
+
+  """Form 990 Part X line 26b"""
+  totalLiabilities: Float
+
+  """Form 990 Part I line 22b"""
+  totalNetAssets: Float
+
+  """Form 990 Part I line 3"""
+  independentVotingMembers: Float
+
+  """Form 990 Part I line 4"""
+  votingMembers: Float
+
+  """Form 990 Part XII line 2a"""
+  hasAudit: Boolean
+
+  """Form 990 Part XII line 2b"""
+  hasCompilationOrReview: Boolean
+
+  """Form 990 Part XII line 2c"""
+  hasAuditCommittee: Boolean
+
+  """Form 990 Part VI line 5"""
+  hasMaterialDiversion: Boolean
+
+  """Form 990 Line J"""
+  hasWebsiteonTaxReturn: Boolean
+
+  """Form 990 Part VI, line 12a"""
+  hasConflictOfInterestPolicy: Boolean
+
+  """Form 990 Part VI, line 13"""
+  hasWhistleblowerPolicy: Boolean
+
+  """Form 990 Part VI, line 14"""
+  hasDocumentRetentionPolicy: Boolean
+
+  """Form 990 Part VI, line 8a"""
+  hasBoardMinutes: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasCompensatesBoard: Boolean
+
+  """Form 990 Part VI, line 11"""
+  has990ProvidedToBoard: Boolean
+
+  """Form 990 Part IV line 26"""
+  hasLoansToOrFromOfficers: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasCEOAndCompensationOnTaxReturn: Boolean
+
+  """Form 990 Part VI, line 15"""
+  hasCEOCompensationPolicy: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasTaxReturnOnWebsite: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasAuditOnWebsite: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasKeyStaffOnWebsite: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasBoardOnWebsite: Boolean
+
+  """Charity Navigator Analyst Portal Input"""
+  hasDonorPrivacyPolicy: String
+}
+
+"""Information realted to pagination"""
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  totalPages: String!
+  totalItems: Int!
+  currentPage: Int!
+}
+
+"""The user account"""
+type User {
+  """The id of the user"""
+  userID: Float
+
+  """The first name of the user"""
+  firstName: String
+
+  """The last name of the user"""
+  lastName: String
+
+  """The email of the user"""
+  email: String
+
+  """The date of the user registration"""
+  registeredAt: DateTime
+
+  """The zip code of the user"""
+  zipCode: String
+
+  """The Occupation ID of the user"""
+  occupationID: Float
+
+  """The Industry ID of the user"""
+  industryID: Float
+
+  """The HowHear ID of the user"""
+  howHearID: Float
+
+  """The isNewsletterSubscribed of the user"""
+  isNewsletterSubscribed: Float
+
+  """The verification status of the user"""
+  isVerified: Boolean
+
+  """The date verification was sent to user"""
+  verificationEmailSentAt: DateTime
+
+  """The last login date of the user"""
+  lastLoginAt: DateTime
+
+  """The donor flag of the user"""
+  isDonor: Boolean
+
+  """The job title of the user"""
+  jobTitle: String
+
+  """The phone number of the user"""
+  phoneNumber: String
+
+  """The phone extension of the user"""
+  phoneExt: String
+  favoriteNonprofits(perPage: Int! = 10, page: Int = 1): PaginatedFavoriteNonprofit!
+
+  """The user subscriptions"""
+  subscriptions: [UserSubscription!]
+
+  """The user donations"""
+  donations(
+    perPage: Int! = 10
+    page: Int = 1
+
+    """retrieve donations by year"""
+    year: String
+  ): PaginatedDonation
+}
+
+"""user subscription"""
+type UserSubscription {
+  id: String!
+  totalAmountCents: Float!
+  totalAmountFormated: String!
+  totalCoveredTransactionFeeAmmountCents: Float
+  totalCoveredTransctionFeeAmmountFormatted: String
+  createdAt: DateTime!
+  cancelledAt: DateTime
+  nextDonationAt: DateTime
+  startAt: DateTime!
+  items: [UserSubscriptionItem!]!
+}
+
+"""user subscription Item"""
+type UserSubscriptionItem {
+  id: String!
+  amountCents: Float!
+  amountFormated: String!
+  coveredTransactionFeeAmmountCents: Float!
+  coveredTransctionFeeAmmountFormatted: String!
+  cancelledAt: DateTime
+  nonprofit: Nonprofit!
+}
+
+"""user donation"""
+type Donation {
+  id: String!
+  amountCents: Float!
+  shareInfoType: String
+  designation: String
+  tributeType: String
+  tributeName: String
+  notificationName: String
+  notificationEmail: String
+  feeAmountCents: Float
+  isFeeAdded: Boolean
+  isRefunded: Boolean
+  frequencyType: String
+  nonprofit: Nonprofit!
+}
+
+"""The charges made by the user"""
+type Charge {
+  """The id of the charge"""
+  id: String!
+
+  """The total feeAmountCents from all donations on this charge"""
+  feeAmountCents: Float!
+  completedAt: DateTime
+
+  """The payment type of the charge"""
+  paymentType: PaymentType
+
+  """The total amount of the charge in cents"""
+  amountCents: Float!
+
+  """The total amount donated to the charity after fees in cents"""
+  netDonationAmountCents: Float!
+
+  """The Name of the processor for this charge."""
+  processor: Processor!
+
+  """The donations that were under this charge"""
+  donations: [Donation!]!
+}
+
+enum PaymentType {
+  VISA
+  MASTERCARD
+  AMEX
+  PAYPAL
+  CHECK
+  BANK
+  CREDIT_CARD
+  DISCOVER
+}
+
+enum Processor {
+  NFG
+  CN
+  DONOR_PERFECT
+  CN_SUPPORT
+  CLASSY
+  GIVE_LIVELY
+  OFFLINE
+}
+
+type PaginatedDonation {
+  edges: [Charge!]!
+  pageInfo: PageInfo!
+}
+
+type PaginatedFavoriteNonprofit {
+  edges: [Nonprofit!]!
+  pageInfo: PageInfo!
+}
+
+"""A list that contains groups of nonprofits"""
+type TopicsData {
+  """The ID of the list"""
+  nonprofit_list_id: Int
+
+  """The legacy ID of the list"""
+  t_nonprofit_list_id: Int
+
+  """The name of the list"""
+  name: String
+
+  """The description of the list"""
+  description: String
+
+  """The created timestamp for the list"""
+  created_at: String
+
+  """The groups within the list"""
+  groups: [Group!]
+
+  """The Donate to All flag"""
+  donate_to_all: Boolean
+
+  """The total number of nonprofits in the list"""
+  total_nonprofits: String
+
+  """The total number of groups in the list"""
+  total_groups: String
+}
+
+"""A group that contains nonprofits"""
+type Group {
+  """The ID of the list the group is contained in"""
+  nonprofit_list_id: Int
+
+  """The legacy ID of the list the group is contained in"""
+  t_nonprofit_list_id: Int
+
+  """The ID of the group"""
+  nonprofit_list_group_id: Int
+
+  """The legacy ID of the group"""
+  t_nonprofit_list_group_id: Int
+
+  """The name of the group"""
+  name: String
+
+  """The description of the group"""
+  description: String
+
+  """The created timestamp for the group"""
+  created_at: String
+
+  """The sort order of the group"""
+  group_sort_order: Int
+
+  """The nonprofits within the group"""
+  nonprofits: [TopicNonprofit!]
+}
+
+"""A nonprofit organization"""
+type TopicNonprofit {
+  """The item ID of the nonprofit within the group"""
+  nonprofit_list_group_item_id: Int
+
+  """The legacy item ID of the nonprofit within the group"""
+  t_nonprofit_list_group_item_id: Int
+
+  """The ID of the group the nonprofit is contained in"""
+  nonprofit_list_group_id: Int
+
+  """The legacy ID of the group the nonprofit is contained in"""
+  t_nonprofit_list_group_id: Int
+
+  """The EIN of the organization"""
+  ein: String
+
+  """The nonprofit ID of the organization"""
+  nonprofit_id: Int
+
+  """The name of the organization"""
+  name: String
+
+  """The response of the organization"""
+  nonprofit_response: String
+
+  """The sort order of the group"""
+  group_sort_order: Int
+
+  """The delete timestamp for the nonprofit item"""
+  deleted_at: String
+
+  """
+  The link to the page where the nonprofit can be found in Charity Navigator
+  """
+  cnLink: String
+
+  """The total encompass score of the nonprofit, formatted for display"""
+  encompass_score_total_display: String
+
+  """The star rating of the organization, from 0-4"""
+  encompass_star_rating: Int
+
+  """The city the organization is located in"""
+  city: String
+
+  """The state that organization is located in"""
+  state: String
+
+  """
+  A flag determining whether the org is labelled exceptional in Encompass
+  """
+  encompass_exceptional: Boolean
+
+  """The tags of the organization (size and main cause, for example)"""
+  tags: [Tag!]
+}
+
+"""A tag within an organization"""
+type Tag {
+  """The name of the tag"""
+  name: String
+
+  """The redirect URL for the tag"""
+  url: String
+}
+
+"""Result item"""
+type PublicSearchResult {
+  """The EIN of the organization"""
+  ein: String
+
+  """The name of the organization"""
+  name: String
+
+  """The mission statement of the organization"""
+  mission: String
+
+  """The URL of the organization"""
+  organization_url: String
+
+  """The URL of the organization's page on Charity Navigator"""
+  charity_navigator_url: String
+
+  """The total encompass score of the organization"""
+  encompass_score: String
+
+  """The star rating of the organization"""
+  encompass_star_rating: String
+
+  """The star rating of the organization"""
+  encompass_publication_date: String
+
+  """A main cause that the organization is associated with"""
+  cause: String
+
+  """The street address of the organization (line 1)"""
+  street: String
+
+  """The street address of the organization (line 2)"""
+  street2: String
+
+  """The city that the organization is located in"""
+  city: String
+
+  """The state that the organization is located in"""
+  state: String
+
+  """The postal code of the organization"""
+  zip: String
+
+  """The country the organization is registered in"""
+  country: String
+
+  """
+  DEPRECATED (renamed highest_level_alert): The highest level advisory of the organization
+  """
+  highest_level_advisory: String
+
+  """The highest level alert of the organization"""
+  highest_level_alert: String
+
+  """The rating ID for the encompass score"""
+  encompass_rating_id: String
+}
+
+"""Faceted search response"""
+type PublicFacetedResponse {
+  """Total number of results requested"""
+  size: Int!
+
+  """Offset of results requested"""
+  from: Int!
+
+  """Search string"""
+  term: String!
+
+  """Total number of results found"""
+  result_count: Int!
+
+  """Results"""
+  results: [PublicSearchResult!]!
+}
+
+"""Lists released by states that report violiations by nonprofits"""
+type DelinquencyList {
+  """The id of the entry"""
+  id: String
+
+  """The ein of the org"""
+  ein: String
+
+  """The name of the state"""
+  violationState: String
+
+  """The category of violation as reported by the state"""
+  viloationCategory: String
+
+  """The date the viloation was archived"""
+  archiveDate: DateTime
+
+  """the date this status was last parsed"""
+  statusAsOf: DateTime
+}
+
+"""Sources Information we have used to set some alerts"""
+type Registries {
+  delinquencyList(
+    """Only return violations for which alert have not been created"""
+    unprocessedEntriesOnly: Boolean
+
+    """The state to filter by"""
+    state: String
+
+    """filter on violations types as defined by CN"""
+    violationType: [NonprofitViolationType!]
+  ): [DelinquencyList!]!
+}
+
+"""The type of violation as defined by CN"""
+enum NonprofitViolationType {
+  """The nonprofit is delinquent"""
+  DELINQUENT
+
+  """
+  The nonprofit is not operating or in danger of no longer being operational
+  """
+  NOT_OPERATING
+
+  """The nonprofit has another type of violation"""
+  OTHER
+}
+
+"""The user account"""
+type Encompass {
+  """Charity Navigator active encompass rating version"""
+  versionActive: String!
+
+  """Charity Navigator preview encompass rating version"""
+  versionPreview: String
+}
+
+"""Strategy data"""
+type Strategy {
+  """The mission statement associated with the strategy"""
+  mission: String
+
+  """The vision statement associated with the strategy"""
+  vision: String
+
+  """The ID of the first goal classification"""
+  goalClassificationId1: Float
+
+  """The ID of the second goal classification"""
+  goalClassificationId2: Float
+
+  """The ID of the third goal classification"""
+  goalClassificationId3: Float
+
+  """The first goal associated with the strategy"""
+  goal1: String
+
+  """The second goal associated with the strategy"""
+  goal2: String
+
+  """The third goal associated with the strategy"""
+  goal3: String
+}
+
+"""Leadership data"""
+type Leadership {
+  """Indicates whether the organization invests in leadership"""
+  leadershipInvestment: Boolean
+
+  """Textual description of the leadership investment"""
+  leadershipInvestmentText: String
+
+  """
+  We support mentorship and coaching programs for our employees to support personal and professional development within our organization.
+  """
+  mentorshipCoaching: Boolean
+
+  """
+  We support our employees in attending leadership conferences and networking events and provide opportunities for these experiences: leadership development, collaborative opportunities, and professional networking.
+  """
+  conferencesNetworking: Boolean
+
+  """
+  We encourage and facilitate our employees' participation in formal education and certifications/training programs, providing them with opportunities for advanced learning and skill enhancement.
+  """
+  educationalPrograms: Boolean
+
+  """
+  Our organization strongly emphasizes succession planning, ensuring continuity in pivotal roles and preserving organizational knowledge.
+  """
+  successionPlanning: Boolean
+
+  """
+  Our organization prioritizes cultural and diversity training, nurturing an inclusive, respectful workplace.
+  """
+  diversityTraining: Boolean
+
+  """Description of mobilization efforts"""
+  mobilizationEfforts: String
+
+  """Indicates whether the organization focuses on community building"""
+  communityBuilding: Boolean
+
+  """
+  Indicates whether the organization collaborates in networks or collective efforts
+  """
+  networksCollective: Boolean
+
+  """Indicates whether the organization engages in policy advocacy"""
+  policyAdvocacy: Boolean
+
+  """Indicates whether the organization raises awareness"""
+  raiseAwareness: Boolean
+
+  """Indicates whether the organization forms strategic partnerships"""
+  strategicPartnerships: Boolean
+
+  """Indicates whether the organization demonstrates thought leadership"""
+  thoughtLeadership: Boolean
+
+  """Indicates whether there are other aspects related to leadership"""
+  other: Boolean
+
+  """Additional information related to other aspects of leadership"""
+  otherText: String
+}
+
+"""Adaptability data"""
+type Adaptability {
+  """Description of adaptation story"""
+  adaptationStory: String
+
+  """
+  Our organization actively undertook strategic planning revisions, updating our long-term goals and strategies to align with the evolving internal and external environments and ensuring our past actions remained relevant and effective in fulfilling our mission.
+  """
+  strategicPlanning: Boolean
+
+  """
+  Our organization recently engaged in organizational Restructuring, reorganizing our internal structure to improve efficiency and adaptability.
+  """
+  organizationalRestructuring: Boolean
+
+  """
+  Our organization has actively engaged in risk management and planning, identifying and strategically addressing potential risks to ensure sustainability and resilience.
+  """
+  riskManagement: Boolean
+
+  """
+  Our organization adapted our operational structure to increase flexibility and responsiveness.
+  """
+  operationalChanges: Boolean
+
+  """
+  Our organization focuses on capacity building and enhancing our abilities and resources to achieve our goals more effectively.
+  """
+  capacityBuilding: Boolean
+
+  """
+  Our organization prioritized Technology and Digital Integration, incorporating advanced digital tools and technologies into our operations.
+  """
+  technologyIntegration: Boolean
+
+  """
+  Our organization adapted our organizational culture, focusing on aligning it more closely with our current goals and the evolving external environment.
+  """
+  organizationalCulture: Boolean
+
+  """
+  Our organization focuses on professional growth opportunities through enhanced evaluation and learning programs.
+  """
+  evaluationLearning: Boolean
+
+  """
+  Our organization realigned its initiatives and services to better meet its strategic objectives and respond to evolving needs. These changes are part of our commitment to continuous improvement and adaptability in our mission-driven work.
+  """
+  programmaticShifts: Boolean
+
+  """
+  Our organization worked alongside other organizations, businesses, and agencies to amplify our impact. This initiative is central to leveraging collective strengths and resources, enhancing our ability to achieve shared goals and make a more significant difference.
+  """
+  partnershipsCollaborations: Boolean
+
+  """
+  Our organization was proactive in diversifying funding sources and expanding and varying our financial support channels to enhance our organization's financial stability and independence.
+  """
+  diversifyingFunding: Boolean
+
+  """
+  Our organization actively involves local communities to build stronger connections and impactful relationships. We stepped up our advocacy and policy engagement, working to influence public policy and advocate for changes aligning with our organization's mission and goals, amplifying our voice and impact in the broader societal context.
+  """
+  communityEngagement: Boolean
+
+  """The filename of the uploaded report"""
+  uploadedReportFilename: String
+
+  """The bucket of the uploaded report"""
+  uploadedReportBucket: String
+
+  """The path of the uploaded report"""
+  uploadedReportPath: String
+}
+
+"""Represents a survey related to leadership and adaptability"""
+type LASurvey {
+  """The ID of the record"""
+  id: Float
+
+  """The EIN (Employer Identification Number)"""
+  ein: String
+
+  """Strategy data"""
+  strategy: Strategy
+
+  """Leadership data"""
+  leadership: Leadership
+
+  """Adaptability data"""
+  adaptability: Adaptability
+
+  """The date and time when the record was created"""
+  createdAt: String
+
+  """The date and time when the record was last updated"""
+  updatedAt: String
+
+  """The date and time when the record was submitted"""
+  submittedAt: String
+
+  """The ID of the user who created the record"""
+  createdById: Float
+
+  """The ID of the user who submitted the record"""
+  submittedById: Float
+}
+
+"""Represents the main feedback data"""
+type Practices {
+  """Indicates if data compensation issues were addressed"""
+  compensation: Boolean
+
+  """Indicates if disparities in data were identified"""
+  disparities: Boolean
+
+  """Indicates if the root cause of data issues was identified"""
+  rootCause: Boolean
+
+  """Indicates if programming goals related to DEI were addressed"""
+  programmingGoals: Boolean
+
+  """Indicates if feedback on DEI initiatives was received"""
+  feedback: Boolean
+
+  """Indicates if demographic data was collected"""
+  demographics: Boolean
+
+  """Indicates if a strategic plan related to DEI was in place"""
+  strategicPlan: Boolean
+}
+
+"""Represents the main feedback data"""
+type Policies {
+  """Indicates if standards related to DEI policies were met"""
+  standards: Boolean
+
+  """Indicates if promotion of DEI policies was observed"""
+  promotion: Boolean
+
+  """Indicates if evaluation of DEI policies occurred"""
+  evaluation: Boolean
+
+  """Indicates if the community was involved in DEI policy initiatives"""
+  community: Boolean
+
+  """Indicates if leadership demonstrated commitment to DEI"""
+  leadership: Boolean
+
+  """Indicates satisfaction with DEI policies"""
+  satisfaction: Boolean
+
+  """Indicates if equity was achieved through DEI policies"""
+  equity: Boolean
+}
+
+"""Represents responses to Diversity, Equity, and Inclusion (DEI)"""
+type Dei {
+  """Equity Strategies Checklist - Data Practices"""
+  practices: Practices
+
+  """Equity Strategies Checklist - Policies """
+  policies: Policies
+}
+
+"""Represents the main feedback data"""
+type Main {
+  """The ID of the main feedback entry"""
+  t_constituent_feedback_main_id: Float
+
+  """The source of the data"""
+  source: String
+
+  """Indicates whether feedback is being collected"""
+  collectingFeedback: Boolean
+
+  """Description of the change resulting from feedback"""
+  changeFromFeedback: String
+
+  """Description of the people served"""
+  peopleServed: String
+
+  """Description of the power shift"""
+  powerShift: String
+}
+
+"""Represents the collection methods for feedback data"""
+type Collection {
+  """The ID of the feedback collection entry"""
+  t_constituent_feedback_collection_id: Float
+
+  """Indicates if surveys are conducted via SMS"""
+  surveysSms: Boolean
+
+  """Indicates if surveys are conducted electronically"""
+  surveysElectronic: Boolean
+
+  """Indicates if surveys are conducted on paper"""
+  surveysPaper: Boolean
+
+  """Indicates if interviews are conducted"""
+  interviews: Boolean
+
+  """
+  Indicates if notes are taken as part of the feedback collection process
+  """
+  notes: Boolean
+
+  """Indicates if meetings are held for feedback collection"""
+  meetings: Boolean
+
+  """Indicates if advisory committees are utilized for feedback collection"""
+  advisoryCommittees: Boolean
+
+  """Indicates if there is a suggestion box for collecting feedback"""
+  suggestionBox: Boolean
+
+  """Indicates if other methods are used for feedback collection"""
+  other: Boolean
+
+  """Additional text describing other collection methods"""
+  otherText: String
+}
+
+"""Represents feedback on the usage of services"""
+type Usage {
+  """The ID of the usage feedback entry"""
+  t_constituent_feedback_usage_id: Float
+
+  """Indicates if there is feedback on poor service"""
+  poorService: Boolean
+
+  """Indicates if there is feedback on positive service experiences"""
+  positiveService: Boolean
+
+  """Indicates if there is feedback on the need for fundamental changes"""
+  fundamentalChanges: Boolean
+
+  """Indicates if there is feedback on the development of new services"""
+  developmentOfNew: Boolean
+
+  """Indicates if there is feedback on inclusion and equity in services"""
+  inclusionEquity: Boolean
+
+  """
+  Indicates if there is feedback on the strengthening of relationships through services
+  """
+  strengthenRelationships: Boolean
+
+  """Indicates if there is feedback on not actively using the services"""
+  dontActivelyUse: Boolean
+
+  """Indicates if there is other feedback related to service usage"""
+  other: Boolean
+
+  """Additional text to describe other feedback on service usage"""
+  otherText: String
+
+  """Indicates if there are needs and goals identified in the feedback"""
+  needsAndGoals: Boolean
+}
+
+"""Represents difficulties encountered in feedback collection"""
+type RoutinePractices {
+  """The ID of the feedback routine practices entry"""
+  t_constituent_feedback_routine_practices_id: Float
+
+  """We collect feedback from the people we serve at least annually"""
+  collectedAtLeastAnnually: Boolean
+
+  """
+  We take steps to get feedback from marginalized or under-represented people
+  """
+  feedbackMarginalizedUnderRepresented: Boolean
+
+  """We aim to collect feedback from as many people we serve as possible"""
+  feedbackFromEveryoneServed: Boolean
+
+  """We take steps to ensure people feel comfortable being honest with us"""
+  honestFeedbackMeasures: Boolean
+
+  """
+  We look for patterns in feedback based on demographics (e.g., race, age, gender, etc.) 
+  """
+  analyzeOnDemographics: Boolean
+
+  """
+  We look for patters in feedback based on people’s interactions with us (e.g., site, frequency of service, etc.)
+  """
+  analyzeOnInteractions: Boolean
+
+  """
+  We engage the people who provide feedback in looking for ways we can improve in response
+  """
+  postFeedbackEngagement: Boolean
+
+  """We act on the feedback we receive"""
+  actionTakenOnFeedback: Boolean
+
+  """We share the feedback we received with the people we serve"""
+  feedbackShared: Boolean
+
+  """We tell the people who gave us feedback how we acted on their feedback"""
+  feedbackGivenOnActions: Boolean
+
+  """We don’t use any of these practices"""
+  noMentionedPractices: Boolean
+
+  """
+  We ask the people who gave us feedback how well they think we responded
+  """
+  feedbackReceivedForActions: Boolean
+
+  """Other practices not covered by previous options"""
+  other: Boolean
+
+  """Description of other practices not covered by previous options"""
+  otherText: String
+}
+
+"""Represents difficulties encountered in feedback collection"""
+type Difficulties {
+  """The ID of the feedback difficulties entry"""
+  t_constituent_feedback_difficulties_id: Float
+
+  """Indicates if it is difficult to obtain responses"""
+  difficultGettingResponses: Boolean
+
+  """Indicates if technology poses difficulties"""
+  technology: Boolean
+
+  """Indicates if the collection process is burdensome"""
+  collectionBurdensome: Boolean
+
+  """Indicates if ongoing funding challenges are encountered"""
+  ongoingFunding: Boolean
+
+  """Indicates if there is a lack of staff time for feedback collection"""
+  lackOfStaffTime: Boolean
+
+  """
+  Indicates if there are difficulties related to the quality of questions
+  """
+  goodQuestions: Boolean
+
+  """
+  Indicates if there are difficulties related to receiving honest feedback
+  """
+  honestFeedback: Boolean
+
+  """Indicates if feedback received is actionable"""
+  actionableFeedback: Boolean
+
+  """Indicates if there are no major challenges encountered"""
+  noMajorChallenges: Boolean
+
+  """
+  Indicates if other difficulties not covered by previous fields are encountered
+  """
+  other: Boolean
+
+  """Additional text to describe other difficulties"""
+  otherText: String
+}
+
+"""Represents responses to constituent feedback data"""
+type Feedback {
+  """Main feedback data"""
+  main: Main
+
+  """Collection method feedback data"""
+  collection: Collection
+
+  """Usage feedback data"""
+  usage: Usage
+
+  """Routine practices feedback data"""
+  practices: RoutinePractices
+
+  """Feedback data on encountered difficulties"""
+  difficulties: Difficulties
+}
+
+"""Represents a constituent survey"""
+type CCSurvey {
+  """Survey ID"""
+  id: String
+
+  """The EIN (Employer Identification Number)"""
+  ein: String
+
+  """DEI data"""
+  dei: Dei
+
+  """Feedback data"""
+  feedback: Feedback
+
+  """The date and time when the entry was created"""
+  createdAt: String
+
+  """The date and time when the entry was archived"""
+  archivedAt: String
+
+  """The user who archived the entry"""
+  archivedBy: String
+}
+
+"""Represents responses to impact survey"""
+type Impact {
+  """A statement describing the impact"""
+  statement: String
+
+  """The determination of the impact"""
+  determination: String
+
+  """The framework used for measuring impact"""
+  framework: String
+
+  """Introduction to the data source for impact"""
+  dataSourceIntro: String
+
+  """The name of the program associated with the impact"""
+  programName: String
+
+  """The type of program associated with the impact"""
+  programType: String
+
+  """The subtype of program associated with the impact"""
+  programSubtype: String
+
+  """The activities of the program associated with the impact"""
+  programActivities: String
+
+  """The geography of the program associated with the impact"""
+  programGeography: String
+
+  """The beneficiaries of the program associated with the impact"""
+  programBeneficiaries: String
+
+  """The time period of the impact data"""
+  dataTimePeriod: String
+
+  """Link to the audit report for the impact"""
+  auditLink: String
+
+  """The outcome metric for the impact"""
+  outcomeMetric: String
+
+  """The source of outcomes data for the impact"""
+  dataSourceOutcomes: String
+
+  """The method used for estimating counterfactual for impact"""
+  methodForEstimatingCounterfactual: String
+
+  """The data source for cost data related to impact"""
+  dataSourceCost: String
+
+  """The calculation method for cost related to impact"""
+  costCalculation: String
+
+  """The calculation method for the impact"""
+  calculation: String
+
+  """A statement indicating confidence level in the impact data"""
+  confidenceStatement: String
+
+  """Benchmark for cost-effectiveness related to impact"""
+  costEffectivenessBenchmark: String
+
+  """Benchmark for comparison related to impact"""
+  comparisonBenchmark: String
+
+  """A statement describing oversimplified outcomes related to impact"""
+  oversimplifiedOutcomes: String
+
+  """Comments related to the impact"""
+  comment: String
+
+  """Details of the analysis conducted for the impact"""
+  analysisDetails: String
+}
+
+"""Represents responses to measurement survey"""
+type Measurement {
+  """placeholder"""
+  calculatedAt: DateTime
+}
+
+"""The survey that has been completed"""
+type IRSurvey {
+  """Impact data"""
+  impact: Impact
+
+  """Measurement data"""
+  measurement: Measurement
+}
+
+type Query {
+  publicSearchFaceted(
+    """The search term"""
+    term: String! = ""
+
+    """Array of 2 character state codes: ["CA", "NY"]"""
+    states: [String!]! = []
+
+    """Charity size: small, medium, large, and super-size"""
+    sizes: [String!]! = []
+
+    """Cause names to filter against"""
+    causes: [String!]! = []
+
+    """Rating number to filter against, from 0-4"""
+    ratings: [String!]! = []
+
+    """501(c)3 filter"""
+    c3: Boolean! = false
+
+    """Size of result set for pagination"""
+    result_size: Int! = 10
+
+    """Offset of result set for pagination"""
+    from: Int! = 0
+
+    """
+    Beacons, either the short name or the full name: i.e.: "Leadership and Adaptability" or "la"
+    """
+    beacons: [String!]! = []
+
+    """Advisory levels to filter against"""
+    advisories: [String!]! = []
+
+    """
+    Sort style for the result set. Valid values are: "relevance", "rating", "size"
+    """
+    order_by: String! = "relevance"
+  ): PublicFacetedResponse!
+  searchFaceted(
+    """The search term"""
+    term: String! = ""
+
+    """Array of 2 character state codes: ["CA", "NY"]"""
+    states: [String!]! = []
+
+    """Charity size: small, medium, large, and super-size"""
+    sizes: [String!]! = []
+
+    """Cause names to filter against"""
+    causes: [String!]! = []
+
+    """Rating number to filter against, from 0-4"""
+    ratings: [String!]! = []
+
+    """501(c)3 filter"""
+    c3: Boolean! = false
+
+    """Size of result set for pagination"""
+    result_size: Int! = 10
+
+    """Offset of result set for pagination"""
+    from: Int! = 0
+
+    """
+    Beacons, either the short name or the full name: i.e.: "Leadership and Adaptability" or "la"
+    """
+    beacons: [String!]! = []
+
+    """Advisory levels to filter against"""
+    advisories: [String!]! = []
+
+    """
+    Sort style for the result set. Valid values are: "relevance", "rating", "size"
+    """
+    order_by: String! = "relevance"
+  ): FacetedResponse!
+  searchAutocomplete(
+    """The search term to gather suggestions for"""
+    term: String! = ""
+  ): [Section!]!
+  getById(
+    """The EINs of the organizations to retrieve"""
+    eins: [String!]! = []
+  ): Results!
+  nonprofits(
+    """An array of EINs of the organizations to retrieve"""
+    eins: [String!]
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): [Nonprofit!]!
+  rating(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): Rating!
+  beacons(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Beacons, either the short name or the slug name"""
+    beacons: [BeaconNamesType!]! = []
+  ): [Beacon!]!
+  alerts(
+    """The EIN of the organizations to retrieve"""
+    ein: String
+
+    """The fake charity id of the """
+    fakeCharityId: String
+  ): [Alert!]!
+  taxReturns(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): [TaxReturn!]!
+  users(
+    """The id of the user to retrieve"""
+    userIds: [String!]
+  ): [User!]!
+  getCauseHierarchy: [CauseNode!]!
+  getTopics: [TopicsData!]!
+  registries(
+    """limit the search by ein"""
+    ein: String
+  ): Registries!
+  encompass: Encompass!
+  LASurveys(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): LASurvey!
+  CCSurveys(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): CCSurvey!
+  IRSurveys(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): IRSurvey!
+}
+
+enum VersionRatingType {
+  active
+  latest
+  v14
+}
+
+type Mutation {
+  updateListsInCloudant(
+    """The EIN of the organizations to retrieve"""
+    ein: String! = ""
+
+    """Specify a ratings string, active, or preview. Active is the default"""
+    version: VersionRatingType = active
+  ): [List!]!
+  createAlert(data: CreateAlertMutationInput!): Alert!
+  cleanAutomatedAlerts(data: CleanAutomatedAlertsMutationInput!): Float!
+  updateProfile(profile: UserProfileInput!): Boolean!
+  addCharityToMyFavorites(
+    """The EIN of the nonprofit to favorite"""
+    ein: String!
+
+    """The id of the user"""
+    userId: String!
+  ): Boolean!
+  removeCharityFromMyFavorites(
+    """The EIN of the nonprofit to favorite"""
+    ein: String!
+
+    """The id of the user"""
+    userId: String!
+  ): Boolean!
+}
+
+input CreateAlertMutationInput {
+  """inforamtion related to data used to automate the alert createtion"""
+  automatedAlertData: AutomatedAlertData
+
+  """The alert Charity Navigator issued on the nonprofit object type"""
+  alert: CreateAlertArgs!
+
+  """"""
+  source: [CreateAlertSourceArgs!]!
+
+  """The id of the user who created the alert"""
+  userId: Float!
+}
+
+input AutomatedAlertData {
+  """The id of the raw table entry"""
+  rawTableId: String!
+
+  """The type of alert we are creating"""
+  alertType: AlertType!
+}
+
+"""The type of alert we are creating"""
+enum AlertType {
+  """The alert is created from delinquency list data"""
+  DELINQUENCY_LIST
+}
+
+input CreateAlertArgs {
+  """The EIN of the delinquent organization"""
+  ein: String!
+
+  """The offence of for the alert we have created"""
+  offense: Offense!
+
+  """The severity of the alert"""
+  severity: Severity!
+
+  """The level of the alert"""
+  level: AlertLevel!
+
+  """The source of the alert"""
+  status: Status!
+}
+
+input CreateAlertSourceArgs {
+  """The source of the alert"""
+  outlet: String!
+
+  """The source article title of the alert"""
+  title: String
+
+  """The source url of the alert"""
+  url: String
+
+  """The date of article publication"""
+  publishedDate: DateTime
+
+  """If the source is the primary source of the alert"""
+  isPrimary: Boolean
+}
+
+input CleanAutomatedAlertsMutationInput {
+  """The type of alert we are creating"""
+  alertType: AlertType!
+
+  """the metadata required to clean the alert"""
+  metadata: DelinquencyListMetadata
+}
+
+input DelinquencyListMetadata {
+  """The state of the delinquent organization"""
+  violationState: String!
+
+  """user Id of user running this job"""
+  userId: Float!
+}
+
+input UserProfileInput {
+  """The id of the user"""
+  userId: String!
+
+  """The first name of the user"""
+  firstName: String
+
+  """The last name of the user"""
+  lastName: String
+
+  """The zip of the user"""
+  zipCode: String
+}

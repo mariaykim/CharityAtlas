@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,11 @@
 		3A1B1D202ADF0A37009104A4 /* CAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D1F2ADF0A37009104A4 /* CAHomeViewController.swift */; };
 		3A1B1D222ADF0A48009104A4 /* CACharitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D212ADF0A48009104A4 /* CACharitiesViewController.swift */; };
 		3A1B1D242ADF0A54009104A4 /* CACharityEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B1D232ADF0A54009104A4 /* CACharityEventsViewController.swift */; };
+		3A22F4992BD6CB4700181FA6 /* SchemaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3A22F4982BD6CB4700181FA6 /* SchemaAPI */; };
+		3A22F49B2BD6D05600181FA6 /* CAGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22F49A2BD6D05600181FA6 /* CAGraphQL.swift */; };
 		3A83CD002B0BEE7A004DB396 /* CACharitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */; };
+		3A8DA3092BD1B57E008A637C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8DA3082BD1B57E008A637C /* Apollo */; };
+		3A8DA30D2BD1C31B008A637C /* charitynavigator.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 3A8DA30C2BD1C31B008A637C /* charitynavigator.graphql */; };
 		3AD0D4FC2B165EAD00D89A45 /* CARequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */; };
 		3AD0D4FE2B165F0800D89A45 /* CAEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */; };
 		3AD0D5002B1661C500D89A45 /* CAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0D4FF2B1661C500D89A45 /* CAService.swift */; };
@@ -43,7 +47,11 @@
 		3A1B1D1F2ADF0A37009104A4 /* CAHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAHomeViewController.swift; sourceTree = "<group>"; };
 		3A1B1D212ADF0A48009104A4 /* CACharitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesViewController.swift; sourceTree = "<group>"; };
 		3A1B1D232ADF0A54009104A4 /* CACharityEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityEventsViewController.swift; sourceTree = "<group>"; };
+		3A22F4962BD6CAE700181FA6 /* schemaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = schemaAPI; sourceTree = "<group>"; };
+		3A22F49A2BD6D05600181FA6 /* CAGraphQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGraphQL.swift; sourceTree = "<group>"; };
 		3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesListView.swift; sourceTree = "<group>"; };
+		3A8DA30C2BD1C31B008A637C /* charitynavigator.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = charitynavigator.graphql; sourceTree = "<group>"; };
+		3A93953E2BD6BFB1004A8758 /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CARequest.swift; sourceTree = "<group>"; };
 		3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEndpoint.swift; sourceTree = "<group>"; };
 		3AD0D4FF2B1661C500D89A45 /* CAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAService.swift; sourceTree = "<group>"; };
@@ -65,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A22F4992BD6CB4700181FA6 /* SchemaAPI in Frameworks */,
+				3A8DA3092BD1B57E008A637C /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,9 @@
 		3A1B1D072ADF04DA009104A4 /* CharityAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				3A22F4962BD6CAE700181FA6 /* schemaAPI */,
+				3A8DA30C2BD1C31B008A637C /* charitynavigator.graphql */,
+				3A93953E2BD6BFB1004A8758 /* schema.graphqls */,
 				3AD0D5072B1664BA00D89A45 /* Models */,
 				3AD0D4FA2B165E9900D89A45 /* APIClient */,
 				3A83CD032B0BEE8B004DB396 /* Resources */,
@@ -155,9 +168,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		3A8DA30B2BD1C2F0008A637C /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				3A22F49A2BD6D05600181FA6 /* CAGraphQL.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 		3AD0D4FA2B165E9900D89A45 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				3A8DA30B2BD1C2F0008A637C /* GraphQL */,
 				3AD0D4FB2B165EAD00D89A45 /* CARequest.swift */,
 				3AD0D4FD2B165F0800D89A45 /* CAEndpoint.swift */,
 				3AD0D4FF2B1661C500D89A45 /* CAService.swift */,
@@ -222,6 +244,10 @@
 			dependencies = (
 			);
 			name = CharityAtlas;
+			packageProductDependencies = (
+				3A8DA3082BD1B57E008A637C /* Apollo */,
+				3A22F4982BD6CB4700181FA6 /* SchemaAPI */,
+			);
 			productName = CharityAtlas;
 			productReference = 3A1B1D052ADF04DA009104A4 /* CharityAtlas.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +276,10 @@
 				Base,
 			);
 			mainGroup = 3A1B1CFC2ADF04DA009104A4;
+			packageReferences = (
+				3A8DA3072BD1B57E008A637C /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				3A22F4972BD6CB4700181FA6 /* XCLocalSwiftPackageReference "CharityAtlas/schemaAPI" */,
+			);
 			productRefGroup = 3A1B1D062ADF04DA009104A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,6 +296,7 @@
 			files = (
 				3A1B1D152ADF04DB009104A4 /* LaunchScreen.storyboard in Resources */,
 				3A1B1D122ADF04DB009104A4 /* Assets.xcassets in Resources */,
+				3A8DA30D2BD1C31B008A637C /* charitynavigator.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +326,7 @@
 				3AD0D5002B1661C500D89A45 /* CAService.swift in Sources */,
 				3A83CD002B0BEE7A004DB396 /* CACharitiesListView.swift in Sources */,
 				3AD0D51B2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift in Sources */,
+				3A22F49B2BD6D05600181FA6 /* CAGraphQL.swift in Sources */,
 				3AD0D4FC2B165EAD00D89A45 /* CARequest.swift in Sources */,
 				3AD0D5062B16649900D89A45 /* CACharityEventDetailViewController.swift in Sources */,
 			);
@@ -507,6 +539,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3A22F4972BD6CB4700181FA6 /* XCLocalSwiftPackageReference "CharityAtlas/schemaAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CharityAtlas/schemaAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A8DA3072BD1B57E008A637C /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A22F4982BD6CB4700181FA6 /* SchemaAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SchemaAPI;
+		};
+		3A8DA3082BD1B57E008A637C /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8DA3072BD1B57E008A637C /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A1B1CFD2ADF04DA009104A4 /* Project object */;
 }
