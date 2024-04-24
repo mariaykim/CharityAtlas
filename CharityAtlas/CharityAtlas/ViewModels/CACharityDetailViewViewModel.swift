@@ -7,6 +7,11 @@
 
 import Foundation
 
-class CACharityDetailViewViewModel {
-    var title = "Detail Title"
+final class CACharityDetailViewViewModel {
+    private let charity: CACharity
+    
+    // MARK: - Init
+    init(charity: CACharity) {
+        self.charity = charity
+    }
 }

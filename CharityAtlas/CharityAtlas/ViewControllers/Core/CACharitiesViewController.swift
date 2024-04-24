@@ -9,7 +9,7 @@ import Apollo
 import UIKit
 import SchemaAPI
 
-class CACharitiesViewController: UIViewController {
+final class CACharitiesViewController: UIViewController, CACharitiesListViewDelegate {
     
     let viewModel = CACharitiesListViewViewModel()
     var data = [ExampleQuery.Data.PublicSearchFaceted.Result]()
@@ -47,5 +47,15 @@ class CACharitiesViewController: UIViewController {
             charitiesListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             charitiesListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
+    }
+    
+    // MARK: - CACharityListViewDelegate
+
+    func caCharitiesListView(_ charitiesListView: CACharitiesListView, didSelectCharity charity: CACharity) {
+        // Open detail controller for that character
+        let viewModel = CACharityDetailViewViewModel(charity: charity)
+        let detailVC = CACharityDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
