@@ -12,6 +12,8 @@ import SchemaAPI
 class CACharitiesViewController: UIViewController {
     
     let viewModel = CACharitiesListViewViewModel()
+    var data = [ExampleQuery.Data.PublicSearchFaceted.Result]()
+    private let charitiesListView = CACharitiesListView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +26,11 @@ class CACharitiesViewController: UIViewController {
             switch result {
               case .success(let graphQLResult):
                 if let name = graphQLResult.data {
-                  print(name) // Luke Skywalker
+                    self.data = name.publicSearchFaceted.results
+                    print("this is the name: \(name.publicSearchFaceted.results[0].mission ?? "-11")") // Luke Skywalker
                 } else if let errors = graphQLResult.errors {
                   // GraphQL errors
-                  print(errors)
+                  print("this is the error: \(errors)")
                 }
               case .failure(let error):
                 // Network or response format errors
@@ -35,5 +38,14 @@ class CACharitiesViewController: UIViewController {
               }
           }
     }
-
+    
+    private func setupViews() {
+        view.addSubview(charitiesListView)
+        NSLayoutConstraint.activate([
+            charitiesListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            charitiesListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            charitiesListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            charitiesListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
+    }
 }
