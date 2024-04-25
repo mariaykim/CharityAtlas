@@ -12,6 +12,11 @@ class CAHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setupView()
+    }
+    
+    func setupView() {
+        view.backgroundColor = .systemCyan
     }
 
 }

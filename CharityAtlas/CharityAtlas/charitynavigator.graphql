@@ -2,12 +2,7 @@ query ExampleQuery($term: String!) {
   publicSearchFaceted(term: $term) {
     results {
       name
-      encompass_star_rating
-      encompass_score
-      mission
-      organization_url
       cause
-      charity_navigator_url
     }
   }
 }

@@ -12,31 +12,13 @@ import SchemaAPI
 final class CACharitiesViewController: UIViewController, CACharitiesListViewDelegate {
     
     let viewModel = CACharitiesListViewViewModel()
-    var data = [ExampleQuery.Data.PublicSearchFaceted.Result]()
+
     private let charitiesListView = CACharitiesListView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        testQuery()
-    }
-    
-    func testQuery() {
-        CAGraphQL().apolloClient.fetch(query: ExampleQuery(term: "animals")) { result in
-            switch result {
-              case .success(let graphQLResult):
-                if let name = graphQLResult.data {
-                    self.data = name.publicSearchFaceted.results
-                    print("this is the name: \(name.publicSearchFaceted.results[0].mission ?? "-11")") // Luke Skywalker
-                } else if let errors = graphQLResult.errors {
-                  // GraphQL errors
-                  print("this is the error: \(errors)")
-                }
-              case .failure(let error):
-                // Network or response format errors
-                print(error)
-              }
-          }
+        setupViews()
     }
     
     private func setupViews() {
@@ -49,7 +31,7 @@ final class CACharitiesViewController: UIViewController, CACharitiesListViewDele
         ])
     }
     
-    // MARK: - CACharityListViewDelegate
+    // MARK: - CACharitiesListViewDelegate
 
     func caCharitiesListView(_ charitiesListView: CACharitiesListView, didSelectCharity charity: CACharity) {
         // Open detail controller for that character

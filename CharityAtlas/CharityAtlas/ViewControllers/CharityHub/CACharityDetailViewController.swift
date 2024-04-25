@@ -23,8 +23,7 @@ final class CACharityDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        title = viewModel.title
+        view.backgroundColor = .systemMint
     }
 
 }

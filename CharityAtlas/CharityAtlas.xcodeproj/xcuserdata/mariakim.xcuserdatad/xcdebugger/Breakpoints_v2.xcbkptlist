@@ -7,96 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "168A2962-EB64-4220-8C2D-AEFC5B009318"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57">
-            <Locations>
-               <Location
-                  uuid = "168A2962-EB64-4220-8C2D-AEFC5B009318 - 8cf0e59ba806e9c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;CharityAtlas.CACharitiesResponse, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesListViewViewModel.fetchCharities() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "1384">
-               </Location>
-               <Location
-                  uuid = "168A2962-EB64-4220-8C2D-AEFC5B009318 - 8cf0e59ba806e9c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;CharityAtlas.CACharitiesResponse, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesListViewViewModel.fetchCharities() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "1400">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B0CD0010-9D0F-45DC-BC2A-37A147A498D5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D4352916-91F5-43E0-BDF4-6C16374E7120"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AA6DD807-16AB-4FEA-82C6-941B63C8BDCA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/Views/CACharitiesListView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "init(frame:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "97E8F50E-9599-4911-B6A3-43C67C99C844"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -225,143 +135,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6ED51B38-7041-4A39-B1C0-DCEAA6115E6D"
+            uuid = "0C1D3240-B8C5-43F2-B794-F76D124192B3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
+            filePath = "CharityAtlas/ViewModels/CACharitiesListViewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F19F5681-8D63-4BEB-98CF-AF530F9F11C0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "testQuery()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F19F5681-8D63-4BEB-98CF-AF530F9F11C0 - c6b81e4d30eafa81"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1460">
-               </Location>
-               <Location
-                  uuid = "F19F5681-8D63-4BEB-98CF-AF530F9F11C0 - c6b81e4d30eafb60"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1336">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EB6595FD-7E28-4D66-9D53-1145F3135689"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "testQuery()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EB6595FD-7E28-4D66-9D53-1145F3135689 - c6b81e4d30eafbec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "1204">
-               </Location>
-               <Location
-                  uuid = "EB6595FD-7E28-4D66-9D53-1145F3135689 - c6b81e4d30eafbec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "EB6595FD-7E28-4D66-9D53-1145F3135689 - c6b81e4d30eafbec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "880">
-               </Location>
-               <Location
-                  uuid = "EB6595FD-7E28-4D66-9D53-1145F3135689 - c6b81e4d30eafbec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Apollo.GraphQLResult&lt;SchemaAPI.ExampleQuery.Data&gt;, Swift.Error&gt;) -&gt; () in CharityAtlas.CACharitiesViewController.testQuery() -&gt; ()"
-                  moduleName = "CharityAtlas"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariakim/Development/CharityAtlas/CharityAtlas/CharityAtlas/ViewControllers/Core/CACharitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "920">
-               </Location>
-            </Locations>
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "charities"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -19,6 +19,7 @@
 		3A22F49B2BD6D05600181FA6 /* CAGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22F49A2BD6D05600181FA6 /* CAGraphQL.swift */; };
 		3A22F49D2BD955C400181FA6 /* CANetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22F49C2BD955C400181FA6 /* CANetworkInterceptorProvider.swift */; };
 		3A22F49F2BD961C600181FA6 /* CACharityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22F49E2BD961C600181FA6 /* CACharityCollectionViewCell.swift */; };
+		3A22F4A12BD96D0000181FA6 /* CACharityCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22F4A02BD96D0000181FA6 /* CACharityCollectionViewCellViewModel.swift */; };
 		3A83CD002B0BEE7A004DB396 /* CACharitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */; };
 		3A8DA3092BD1B57E008A637C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8DA3082BD1B57E008A637C /* Apollo */; };
 		3A8DA30D2BD1C31B008A637C /* charitynavigator.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 3A8DA30C2BD1C31B008A637C /* charitynavigator.graphql */; };
@@ -53,6 +54,7 @@
 		3A22F49A2BD6D05600181FA6 /* CAGraphQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGraphQL.swift; sourceTree = "<group>"; };
 		3A22F49C2BD955C400181FA6 /* CANetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANetworkInterceptorProvider.swift; sourceTree = "<group>"; };
 		3A22F49E2BD961C600181FA6 /* CACharityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A22F4A02BD96D0000181FA6 /* CACharityCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharityCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		3A83CCFF2B0BEE7A004DB396 /* CACharitiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CACharitiesListView.swift; sourceTree = "<group>"; };
 		3A8DA30C2BD1C31B008A637C /* charitynavigator.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = charitynavigator.graphql; sourceTree = "<group>"; };
 		3A93953E2BD6BFB1004A8758 /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				3AD0D5182B1680C600D89A45 /* CACharityListViewViewModel.swift */,
 				3AD0D51A2B211EEB00D89A45 /* CACharityEventsListViewViewModel.swift */,
 				3AD0D51C2B212D2B00D89A45 /* CACharitiesListViewViewModel.swift */,
+				3A22F4A02BD96D0000181FA6 /* CACharityCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				3A1B1D0B2ADF04DA009104A4 /* SceneDelegate.swift in Sources */,
 				3AD0D5042B16645200D89A45 /* CACharityDetailViewController.swift in Sources */,
 				3AD0D50D2B16654700D89A45 /* Extensions.swift in Sources */,
+				3A22F4A12BD96D0000181FA6 /* CACharityCollectionViewCellViewModel.swift in Sources */,
 				3AD0D5132B1679F400D89A45 /* CACharityEvent.swift in Sources */,
 				3AD0D50F2B16669C00D89A45 /* CACharityDetailViewViewModel.swift in Sources */,
 				3AD0D5112B16790500D89A45 /* CACharityEventDetailViewViewModel.swift in Sources */,
