@@ -55,7 +55,7 @@ final class CACharitiesListViewViewModel: NSObject {
                     // Assuming you have a JSON response from your GraphQL query stored in a variable called jsonResponse
                         
                         // Map the JSON array to an array of SearchResult objects
-                        let results = jsonResponse.map { CACharity(json: $0) }
+                        let results = jsonResponse.compactMap { CACharity(json: $0) }
                         
                         // Now you have a SearchResponse object containing SearchResult objects
                         print(results)
@@ -103,10 +103,10 @@ extension CACharitiesListViewViewModel: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
-        let width = (bounds.width-30)/2
+        let width = bounds.width - 30
         return CGSize(
             width: width,
-            height: width * 1.5
+            height: width * 0.5
         )
     }
     

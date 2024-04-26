@@ -3,6 +3,11 @@ query ExampleQuery($term: String!) {
     results {
       name
       cause
+      charity_navigator_url
+      mission
+      organization_url
+      encompass_score
+      encompass_star_rating
     }
   }
 }
